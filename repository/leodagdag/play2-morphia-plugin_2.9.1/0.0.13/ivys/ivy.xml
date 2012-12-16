@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
-	<info organisation="leodagdag" module="play2-morphia-plugin_2.9.1" revision="0.0.13" status="release" publication="20121216135955">
+	<info organisation="leodagdag" module="play2-morphia-plugin_2.9.1" revision="0.0.13" status="release" publication="20121216153444">
 		<description>
 		play2-morphia-plugin
 		</description>
@@ -26,8 +26,14 @@
 	</publications>
 	<dependencies>
 		<dependency org="com.github.jmkgreen.morphia" name="morphia" rev="1.2.2" conf="compile->default(compile)"/>
-		<dependency org="com.github.jmkgreen.morphia" name="morphia-logging-slf4j" rev="1.2.2" conf="compile->default(compile)"/>
-		<dependency org="com.github.jmkgreen.morphia" name="morphia-validation" rev="1.2.2" conf="compile->default(compile)"/>
+		<dependency org="com.github.jmkgreen.morphia" name="morphia-logging-slf4j" rev="1.2.2" transitive="false" conf="compile->default(compile)">
+			<exclude org="org.slf4j" module="slf4j-simple" name="*" type="jar" ext="*" conf="" matcher="exact"/>
+			<exclude org="org.slf4j" module="slf4j-jdk14" name="*" type="jar" ext="*" conf="" matcher="exact"/>
+		</dependency>
+		<dependency org="com.github.jmkgreen.morphia" name="morphia-validation" rev="1.2.2" transitive="false" conf="compile->default(compile)">
+			<exclude org="org.slf4j" module="slf4j-simple" name="*" type="jar" ext="*" conf="" matcher="exact"/>
+			<exclude org="org.slf4j" module="slf4j-jdk14" name="*" type="jar" ext="*" conf="" matcher="exact"/>
+		</dependency>
 		<dependency org="play" name="play_2.9.1" rev="2.0.4" transitive="false" conf="compile->default(compile)"/>
 		<dependency org="org.springframework" name="spring-core" rev="3.0.7.RELEASE" transitive="false" conf="compile->default(compile)">
 			<exclude org="org.springframework" module="spring-asm" name="*" type="jar" ext="*" conf="" matcher="exact"/>
